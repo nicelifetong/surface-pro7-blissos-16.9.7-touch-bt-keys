@@ -1,0 +1,4 @@
+# 放到 /data/vendor/modules.blocklist
+# 作用：让 soc_button_array 延后加载，避免它抢占 GPIO 导致 gpio_keys 绑不上 MSHW0040
+# 生效：写入后重启（init 在启动早期读取此文件）
+deferred soc_button_array
