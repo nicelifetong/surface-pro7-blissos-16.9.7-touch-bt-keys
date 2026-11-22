@@ -1,0 +1,15 @@
+# /EFI/refind/refind.conf 关键片段
+# 配合 FydeOS 0.14.1 的 refind_x64.efi 使用（0.14.0 的触摸在 Surface 上不工作）
+
+timeout 8
+use_nvram false
+
+# 关键：不扫任何卷的 EFI 目录，只扫固件条目。
+# 这样不会出现 "No mapping while scanning the EFI directory on SYSTEM"
+# 而卡在 "Hit any key to continue"（没键盘就开不了机）。
+# Windows 仍通过固件的 "Windows Boot Manager" 条目出现。
+scanfor manual,firmware
+dont_scan_firmware rEFInd
+
+# 触摸
+enable_touch
